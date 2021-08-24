@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Swal from "sweetalert2";
-import { useAppDispatch } from "redux/hooks";
-import { getInfoAsync } from "redux/userSlice";
+// import Swal from "sweetalert2";
+// import { useAppDispatch } from "redux/hooks";
+// import { getInfoAsync } from "redux/userSlice";
 
 interface Props {
   title: string;
@@ -14,22 +15,22 @@ interface Props {
 
 const MetaLayout = ({ title, desc, icon, children }: Props) => {
   const router = useRouter();
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const { pathname } = router;
-    if (pathname === "/login/cb" || pathname === "/login") return;
-    if (!token) {
-      Swal.fire({
-        timer: 2000,
-        icon: "warning",
-        title: "Chưa đăng nhập",
-        text: "Bạn chưa từng đăng nhập vào hệ thống nè",
-      });
-      return;
-    }
-    dispatch(getInfoAsync(token));
-  }, []);
+  // const dispatch = useAppDispatch();
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   const { pathname } = router;
+  //   if (pathname === "/login/cb" || pathname === "/login") return;
+  //   if (!token) {
+  //     Swal.fire({
+  //       timer: 2000,
+  //       icon: "warning",
+  //       title: "Chưa đăng nhập",
+  //       text: "Bạn chưa từng đăng nhập vào hệ thống nè",
+  //     });
+  //     return;
+  //   }
+  //   dispatch(getInfoAsync(token));
+  // }, []);
   const url = process.env.NEXT_PUBLIC_WEB_URL;
   const path = router.asPath;
   // TODO replace logo svg
