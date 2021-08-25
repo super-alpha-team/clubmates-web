@@ -5,12 +5,16 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withBundleAnalyzer({
   target: "serverless",
-  distDir: "build",
   publicRuntimeConfig: {
     // add your public runtime environment variables here with NEXT_PUBLIC_*** prefix
   },
   webpack: (config) => {
     // extend your webpack configuration here
     return config;
+  },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
   },
 });
