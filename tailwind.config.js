@@ -17,6 +17,7 @@ module.exports = {
         orange: {
           DEFAULT: "#F4A261",
           dark: "#E76F51",
+          footer: "#FBB667",
         },
         yellow: "#E9C46A",
         cyan: {
@@ -30,11 +31,20 @@ module.exports = {
           DEFAULT: "#B6B6B6",
           dark: "#787878",
         },
+        secondary: "#F3CD03",
         bgc: "#F8F9FA",
       },
       fontFamily: {
         serif: ["Nunito", "sans-serif"],
       },
+      borderRadius: {
+        footer: "48% 49% 0% 0% / 12% 16% 0% 0% ",
+      },
+    },
+    boxShadow: {
+      button:
+        "0 4px 6px 0px rgba(0, 0, 0, 0.25), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      card: "0px 3px 15px 4px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
     },
   },
   variants: {},

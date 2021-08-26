@@ -17,4 +17,7 @@ module.exports = withBundleAnalyzer({
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ["images.unsplash.com"],
+  },
 });
