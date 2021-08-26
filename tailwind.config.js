@@ -13,6 +13,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      // screens: {
+      //   'w460': '640px',
+      // },
       colors: {
         orange: {
           DEFAULT: "#F4A261",
@@ -38,7 +41,7 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require("@tailwindcss/forms")],
+  // plugins: [require("@tailwindcss/forms")],
   future: {
     purgeLayersByDefault: true,
   },

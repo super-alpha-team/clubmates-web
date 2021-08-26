@@ -1,11 +1,51 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import DropdownButton from "components/search/DropdownButton"
 
 type AppProps = {
   query: string;
 };
 // // https://nextjs.org/docs/routing/shallow-routing
 const LoginSuccess = ({ query }: AppProps) => {
-  return <div>Đây là phần search</div>;
+  const [categoryFilter, setCategoryFilter] = useState<string>(null)
+  const [timeFilter, setTimeFilter] = useState<string>(null)
+  const [provinceFilter, setProvinceFilter] = useState<string>(null)
+  const [priceFilter, setPriceFilter] = useState<string>(null)
+
+  return <div>
+    <div >
+      <div className="bg-gray-100 flex flex-col justify-center items-center">
+        <div className="mt-8 mb-4 px-4 h-12 w-4/5 bg-white border rounded-full flex flex-row justify-center items-center">
+          <div className="mr-2 relative w-32 text-red-400 items-center">
+            <select className="z-20 w-full appearance-none border-none active:border-none" id="type">
+              <option value="all">Tất cả</option>
+              <option value="club">Câu lạc bộ</option>
+              <option value="activity">Hoạt động</option>
+            </select>
+            <img className="z-10 absolute bottom-0 right-0" src="/icons/entypo_select-arrows.svg"></img>
+          </div>
+          <div className="mr-8 h-4/5 w-px bg-gray-200"></div>
+          <div className="w-full flex flex-row justify-between">
+            <input className="w-full outline-none border-none" type="text" id="search" placeholder="Tìm kiếm bất cứ thứ gì ở đây..."></input>
+            <svg className="ml-3 h-6 w-6 text-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+
+        <p className="text-sm mb-4">
+          <span>Đề xuất:&nbsp;</span>
+          <span className="text-red-400">Mùa hè xanh, MHX, chiến dịch,..</span>
+        </p>
+
+        <div className="w-full grid grid-cols-1 gap-x-8 gap-y-4 px-24 pb-8 sm:grid-cols-2 lg:grid-cols-4">
+          <DropdownButton value={categoryFilter} title="Danh mục" items={["Thể thao", "Tình nguyện", "Văn nghệ"]} action={setCategoryFilter}></DropdownButton>
+          <DropdownButton value={timeFilter} title="Thời gian" items={["Trong tuần", "Trong tháng", "Trong quý"]} action={setTimeFilter}></DropdownButton>
+          <DropdownButton value={provinceFilter} title="Địa điểm" items={provinces} action={setProvinceFilter}></DropdownButton>
+          <DropdownButton value={priceFilter} title="Giá" items={["Miễn phí", "Dưới 100k", "Dưới 500k"]} action={setPriceFilter}></DropdownButton>
+        </div>
+      </div>
+    </div>
+  </div>;
 };
 
 export default LoginSuccess;
@@ -15,3 +55,69 @@ export async function getServerSideProps(context) {
     props: { token: context?.query ?? "" }, // will be passed to the page component as props
   };
 }
+
+const provinces = [
+  "An Giang",
+  "Bà Rịa - Vũng Tàu",
+  "Bắc Giang",
+  "Bắc Kạn",
+  "Bạc Liêu",
+  "Bắc Ninh",
+  "Bến Tre",
+  "Bình Định",
+  "Bình Dương",
+  "Bình Phước",
+  "Bình Thuận",
+  "Cà Mau",
+  "Cần Thơ",
+  "Cao Bằng",
+  "Đà Nẵng",
+  "Đắk Lắk",
+  "Đắk Nông",
+  "Điện Biên",
+  "Đồng Nai",
+  "Đồng Tháp",
+  "Gia Lai",
+  "Hà Giang",
+  "Hà Nam",
+  "Hà Nội",
+  "Hà Tĩnh",
+  "Hải Dương",
+  "Hải Phòng",
+  "Hậu Giang",
+  "Hòa Bình",
+  "Hưng Yên",
+  "Khánh Hòa",
+  "Kiên Giang",
+  "Kon Tum",
+  "Lai Châu",
+  "Lâm Đồng",
+  "Lạng Sơn",
+  "Lào Cai",
+  "Long An",
+  "Nam Định",
+  "Nghệ An",
+  "Ninh Bình",
+  "Ninh Thuận",
+  "Phú Thọ",
+  "Phú Yên",
+  "Quảng Bình",
+  "Quảng Nam",
+  "Quảng Ngãi",
+  "Quảng Ninh",
+  "Quảng Trị",
+  "Sóc Trăng",
+  "Sơn La",
+  "Tây Ninh",
+  "Thái Bình",
+  "Thái Nguyên",
+  "Thanh Hóa",
+  "Thừa Thiên Huế",
+  "Tiền Giang",
+  "Thành phố Hồ Chí Minh",
+  "Trà Vinh",
+  "Tuyên Quang",
+  "Vĩnh Long",
+  "Vĩnh Phúc",
+  "Yên Bái",
+]

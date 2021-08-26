@@ -5,4 +5,5 @@ build/
 .github/
 .vscode/
 .env.local
+.env
 yarn.lock
