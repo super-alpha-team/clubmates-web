@@ -28,6 +28,7 @@ module.exports = {
         warning: "#CAB23F",
         gray: {
           DEFAULT: "#B6B6B6",
+          light: "#D2D2D2",
           dark: "#787878",
         },
         bgc: "#F8F9FA",
