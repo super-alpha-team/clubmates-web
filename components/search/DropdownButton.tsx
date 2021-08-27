@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
 import React, { useState } from "react";
 
-type ComProps = {
+type DropDownButtonProps = {
     value?: string;
     title: string;
     items: Array<string>;
@@ -23,12 +23,11 @@ function stringToSearchText(str) {
     return str;
 }
 
-export default function DropdownButton({ value, title, items, action}: ComProps) {
+export default function DropdownButton({ value, title, items, action}: DropDownButtonProps) {
     const options = items.map(e => {return {text: e, searchText: stringToSearchText(e)}})
     const [isExpanded, setIsExpanded] = useState(false);
     const [selected, setSelected] = useState(value)
     const [searchKey, setSearchKey] = useState("")
-    const rootId = "random-id"
 
     function expand() {
         setSearchKey("")
@@ -68,7 +67,7 @@ export default function DropdownButton({ value, title, items, action}: ComProps)
 
     function onBlur(e) {
         if (!focusInCurrentTarget(e)) {
-            // collapse()
+            collapse()
         }
     }
 
@@ -79,15 +78,15 @@ export default function DropdownButton({ value, title, items, action}: ComProps)
     }
     return (
         <>
-            <div id={rootId} className="w-full h-16" tabIndex={0} onBlur={onBlur}>
+            <div className="w-full h-16" tabIndex={0} onBlur={onBlur}>
                 <span>{title}</span>
                 <div className="z-10 mt-1.5 px-2 py-1 rounded border border-gray-500 flex flex-row justify-between cursor-pointer" onClick={toggle}>
-                    <span className="w-full">{selected == null ? "Chọn danh mục" : selected}</span>
+                    <span className="w-full">{selected == null ? `Chọn ${title.toLowerCase()}` : selected}</span>
                     <img src="/icons/entypo_select-arrows.svg"></img>
                 </div>
 
                 {isExpanded &&
-                    <div className="z-9999 relative shadow-md list-none bg-white p-2 mt-2 rounded">
+                    <div className="z-[9999] relative shadow-md list-none bg-white p-2 mt-2 rounded">
                         <input className="px-2 py-1 w-full rounded border border-gray-200 outline-none focus:border-blue-300" placeholder="Tìm kiếm" type="text" id="typesearch" onChange={search}></input>
                         <li className="max-h-[7.2rem] overflow-y-auto">
                             {

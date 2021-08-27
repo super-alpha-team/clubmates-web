@@ -1,6 +1,6 @@
-import Activity from 'components/layout/Activity'
+import Activity from 'components/kit/ActivityItem'
 import React from 'react'
-import { ActivityProps } from './Activity'
+import { ActivityProps } from '../kit/ActivityItem'
 
 type RelevantResultsProps = {
     relevantResults: ActivityProps[];

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import DropdownButton from "components/search/DropdownButton"
-// import Activity from "components/layout/Activity";
-import RelevantResults from "components/layout/RelevantResults";
-import SearchResults from "components/layout/SearchResults";
+import Header from "components/header/Header";
+import Footer from "components/footer/Footer";
+import RelevantResults from "components/search/RelevantResults";
+import SearchResults from "components/search/SearchResults";
 
 type AppProps = {
   query: string;
@@ -17,6 +18,7 @@ const LoginSuccess = ({ query }: AppProps) => {
 
   return <div>
     <div >
+      <Header />
       <div className="bg-gray-100 flex flex-col justify-center items-center">
         <div className="mt-8 mb-4 px-4 h-12 w-4/5 bg-white border rounded-full flex flex-row justify-center items-center">
           <div className="mr-2 relative w-32 text-red-400 items-center">
@@ -50,18 +52,13 @@ const LoginSuccess = ({ query }: AppProps) => {
       </div>
    
       <div className="p-4">
-      <SearchResults searchKeyword="Chiến dịch mùa hè xanh lá" results={DATA} />
+      <SearchResults searchKeyword="Chiến dịch mùa hè xanh lá" activityResults={DATA} clubResults={CLUB_DATA}/>
       <RelevantResults relevantResults={DATA}/>
+      <div className="pt-24"></div>
+      <Footer/>
     </div>
     </div>
   </div>;
-  
-  // return (
-  //   <div className="p-4">
-  //     <SearchResults searchKeyword="Chiến dịch mùa hè xanh lá" results={DATA} />
-  //     <RelevantResults relevantResults={DATA}/>
-  //   </div>
-  // );
 };
 
 export default LoginSuccess;
@@ -244,5 +241,17 @@ const DATA = [
       cost: "100k",
     }
   },
-
 ]
+
+const CLUB_DATA = Array(5).fill({
+  data: {
+    img: "https://i.pinimg.com/474x/74/30/4d/74304d33481af62ac222522d71b51b4e.jpg",
+    logo: "https://i.pinimg.com/474x/d8/04/93/d80493a32f53c5626d58a45cc3c4c377.jpg",
+    joined: true,
+    destination: "Long An",
+    category: "Tình nguyện",
+    name: "Đội hình tin học hóa và kèm một cái tên 2 dòng",
+    description: "Đội hình tin học hoá là một đội hình chuyên nghệ thuât với các thành viên năng động...",
+    cost: "100k",
+  }
+})
