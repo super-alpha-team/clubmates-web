@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import Logo from "../../public/icons/Clubmates.svg";
 
@@ -12,7 +13,7 @@ function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b shadow-card">
+    <header className="sticky top-0 z-50 bg-white border-b shadow-md">
       <nav className="">
         <div className="container flex items-center justify-between md:pl-12 pl-4 md:pr-12 pr-4 pt-4 pb-4 max-w-full md:max-w-screen-2xl">
           <div className="flex items-center cursor-pointer">
@@ -27,19 +28,25 @@ function Header() {
             {/* <img src="../public/icons/logo.png" alt="logo clubmates" /> */}
           </div>
           <ul className="hidden md:flex gap-8">
-            <li className="text-lg font-bold text-orange cursor-pointer">
-              <a href="#">Hoạt động</a>
+            <li className="text-lg font-semibold text-orange cursor-pointer">
+              <Link href="/activity">
+                <a href="#">Hoạt động</a>
+              </Link>
             </li>
-            <li className="text-lg font-medium cursor-pointer">
-              <a href="#">Câu lạc bộ</a>
+            <li className="text-lg text-gray font-semibold cursor-pointer">
+              <Link href="/club">
+                <a href="#">Câu lạc bộ</a>
+              </Link>
             </li>
-            <li className="text-lg font-medium cursor-pointer">
-              <a href="#">Blog</a>
+            <li className="text-lg text-gray font-semibold cursor-pointer">
+              <Link href="/blog">
+                <a href="#">Blog</a>
+              </Link>
             </li>
           </ul>
 
           <div className="flex items-center gap-6">
-            <button className="text-sm w-12 h-12 flex justify-center items-center rounded-full shadow-button">
+            <button className="text-sm w-12 h-12 flex justify-center items-center rounded-full shadow-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 text-orange"
@@ -55,7 +62,7 @@ function Header() {
                 />
               </svg>
             </button>
-            <button className="text-lg pl-4 pr-4 pt-2 pb-2 rounded-full bg-orange text-white shadow-button">
+            <button className="text-lg pl-4 pr-4 pt-2 pb-2 rounded-full bg-orange text-white shadow-md">
               Đăng nhập
             </button>
           </div>

@@ -244,7 +244,7 @@ const HomePage: FC = () => {
         {/* số liệu nổi bật */}
         <section className="pb-20 pt-12 flex lg:flex-row flex-col ">
           <div className="flex-1 mb-12 lg:mb-0">
-            <Image src={section5} alt="image 5" />
+            <Image src={section5} alt="image 5" layout="fill" />
           </div>
           <div className="flex flex-col flex-1 ml-12 justify-center">
             <div className="w-24 border-4 border-cyan-light rounded-full mb-6"></div>

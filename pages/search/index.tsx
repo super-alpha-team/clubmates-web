@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DropdownButton from "components/search/DropdownButton"
+import DropdownButton from "components/search/DropdownButton";
 import Header from "components/header/Header";
 import Footer from "components/footer/Footer";
 import RelevantResults from "components/search/RelevantResults";
@@ -11,29 +11,51 @@ type AppProps = {
 
 // // https://nextjs.org/docs/routing/shallow-routing
 const LoginSuccess = ({ query }: AppProps) => {
-  const [categoryFilter, setCategoryFilter] = useState<string>(null)
-  const [timeFilter, setTimeFilter] = useState<string>(null)
-  const [provinceFilter, setProvinceFilter] = useState<string>(null)
-  const [priceFilter, setPriceFilter] = useState<string>(null)
+  const [categoryFilter, setCategoryFilter] = useState<string>(null);
+  const [timeFilter, setTimeFilter] = useState<string>(null);
+  const [provinceFilter, setProvinceFilter] = useState<string>(null);
+  const [priceFilter, setPriceFilter] = useState<string>(null);
 
-  return <div>
-    <div >
+  return (
+    <div>
       <Header />
       <div className="bg-gray-100 flex flex-col justify-center items-center">
         <div className="mt-8 mb-4 px-4 h-12 w-4/5 bg-white border rounded-full flex flex-row justify-center items-center">
           <div className="mr-2 relative w-32 text-red-400 items-center">
-            <select className="z-20 w-full appearance-none border-none active:border-none" id="type">
+            <select
+              className="z-20 w-full appearance-none border-none active:border-none"
+              id="type"
+            >
               <option value="all">Tất cả</option>
               <option value="club">Câu lạc bộ</option>
               <option value="activity">Hoạt động</option>
             </select>
-            <img className="z-10 absolute bottom-0 right-0" src="/icons/entypo_select-arrows.svg"></img>
+            <img
+              className="z-10 absolute bottom-0 right-0"
+              src="/icons/entypo_select-arrows.svg"
+            ></img>
           </div>
           <div className="mr-8 h-4/5 w-px bg-gray-200"></div>
           <div className="w-full flex flex-row justify-between">
-            <input className="w-full outline-none border-none" type="text" id="search" placeholder="Tìm kiếm bất cứ thứ gì ở đây..."></input>
-            <svg className="ml-3 h-6 w-6 text-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <input
+              className="w-full outline-none border-none"
+              type="text"
+              id="search"
+              placeholder="Tìm kiếm bất cứ thứ gì ở đây..."
+            ></input>
+            <svg
+              className="ml-3 h-6 w-6 text-red-400"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
             </svg>
           </div>
         </div>
@@ -44,21 +66,45 @@ const LoginSuccess = ({ query }: AppProps) => {
         </p>
 
         <div className="w-full grid grid-cols-1 gap-x-8 gap-y-4 px-24 pb-8 sm:grid-cols-2 lg:grid-cols-4">
-          <DropdownButton value={categoryFilter} title="Danh mục" items={["Thể thao", "Tình nguyện", "Văn nghệ"]} action={setCategoryFilter}></DropdownButton>
-          <DropdownButton value={timeFilter} title="Thời gian" items={["Trong tuần", "Trong tháng", "Trong quý"]} action={setTimeFilter}></DropdownButton>
-          <DropdownButton value={provinceFilter} title="Địa điểm" items={provinces} action={setProvinceFilter}></DropdownButton>
-          <DropdownButton value={priceFilter} title="Giá" items={["Miễn phí", "Dưới 100k", "Dưới 500k"]} action={setPriceFilter}></DropdownButton>
+          <DropdownButton
+            value={categoryFilter}
+            title="Danh mục"
+            items={["Thể thao", "Tình nguyện", "Văn nghệ"]}
+            action={setCategoryFilter}
+          ></DropdownButton>
+          <DropdownButton
+            value={timeFilter}
+            title="Thời gian"
+            items={["Trong tuần", "Trong tháng", "Trong quý"]}
+            action={setTimeFilter}
+          ></DropdownButton>
+          <DropdownButton
+            value={provinceFilter}
+            title="Địa điểm"
+            items={provinces}
+            action={setProvinceFilter}
+          ></DropdownButton>
+          <DropdownButton
+            value={priceFilter}
+            title="Giá"
+            items={["Miễn phí", "Dưới 100k", "Dưới 500k"]}
+            action={setPriceFilter}
+          ></DropdownButton>
         </div>
       </div>
-   
+
       <div className="p-4">
-      <SearchResults searchKeyword="Chiến dịch mùa hè xanh lá" activityResults={DATA} clubResults={CLUB_DATA}/>
-      <RelevantResults relevantResults={DATA}/>
-      <div className="pt-24"></div>
-      <Footer/>
+        <SearchResults
+          searchKeyword="Chiến dịch mùa hè xanh lá"
+          activityResults={DATA}
+          clubResults={CLUB_DATA}
+        />
+        <RelevantResults relevantResults={DATA} />
+        <div className="pt-24"></div>
+      </div>
+      <Footer />
     </div>
-    </div>
-  </div>;
+  );
 };
 
 export default LoginSuccess;
@@ -133,7 +179,7 @@ const provinces = [
   "Vĩnh Long",
   "Vĩnh Phúc",
   "Yên Bái",
-]
+];
 
 const DATA = [
   {
@@ -144,12 +190,13 @@ const DATA = [
       destination: "Long An",
       category: "Tình nguyện",
       name: "Xuân tình nguyện - bạn của mọi nhà",
-      description: "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
+      description:
+        "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
       status: "Đang diễn ra",
       percent: "25%",
       participants: "25/100",
       cost: "100k",
-    }
+    },
   },
   {
     data: {
@@ -159,12 +206,13 @@ const DATA = [
       destination: "Long An",
       category: "Tình nguyện",
       name: "Xuân tình nguyện - bạn của mọi nhà",
-      description: "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
+      description:
+        "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
       status: "Đang diễn ra",
       percent: "25%",
       participants: "25/100",
       cost: "100k",
-    }
+    },
   },
   {
     data: {
@@ -174,12 +222,13 @@ const DATA = [
       destination: "Long An",
       category: "Tình nguyện",
       name: "Xuân tình nguyện - bạn của mọi nhà",
-      description: "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
+      description:
+        "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
       status: "Đang diễn ra",
       percent: "25%",
       participants: "25/100",
       cost: "100k",
-    }
+    },
   },
   {
     data: {
@@ -189,12 +238,13 @@ const DATA = [
       destination: "Long An",
       category: "Tình nguyện",
       name: "Xuân tình nguyện - bạn của mọi nhà",
-      description: "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
+      description:
+        "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
       status: "Đang diễn ra",
       percent: "25%",
       participants: "25/100",
       cost: "100k",
-    }
+    },
   },
   {
     data: {
@@ -204,12 +254,13 @@ const DATA = [
       destination: "Long An",
       category: "Tình nguyện",
       name: "Xuân tình nguyện - bạn của mọi nhà",
-      description: "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
+      description:
+        "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
       status: "Đang diễn ra",
       percent: "25%",
       participants: "25/100",
       cost: "100k",
-    }
+    },
   },
   {
     data: {
@@ -219,12 +270,13 @@ const DATA = [
       destination: "Long An",
       category: "Tình nguyện",
       name: "Xuân tình nguyện - bạn của mọi nhà",
-      description: "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
+      description:
+        "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
       status: "Đang diễn ra",
       percent: "25%",
       participants: "25/100",
       cost: "100k",
-    }
+    },
   },
   {
     data: {
@@ -234,14 +286,15 @@ const DATA = [
       destination: "Long An",
       category: "Tình nguyện",
       name: "Xuân tình nguyện - bạn của mọi nhà",
-      description: "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
+      description:
+        "When i’m not coding i switch to netflix with biscuits. When i’m not coding i switch to netflix with biscuits.When i’m not coding i switch to netflix with biscuits.",
       status: "Đang diễn ra",
       percent: "25%",
       participants: "25/100",
       cost: "100k",
-    }
+    },
   },
-]
+];
 
 const CLUB_DATA = Array(5).fill({
   data: {
@@ -251,7 +304,8 @@ const CLUB_DATA = Array(5).fill({
     destination: "Long An",
     category: "Tình nguyện",
     name: "Đội hình tin học hóa và kèm một cái tên 2 dòng",
-    description: "Đội hình tin học hoá là một đội hình chuyên nghệ thuât với các thành viên năng động...",
+    description:
+      "Đội hình tin học hoá là một đội hình chuyên nghệ thuât với các thành viên năng động...",
     cost: "100k",
-  }
-})
+  },
+});

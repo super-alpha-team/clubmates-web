@@ -60,7 +60,7 @@ module.exports = {
     },
   },
   variants: {},
-  // plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/line-clamp")],
   future: {
     purgeLayersByDefault: true,
   },
