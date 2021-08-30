@@ -32,7 +32,7 @@ function ActivityItem(props: ActivityProps) {
     cost,
   } = props.data;
   return (
-    <div className="w-72 h-96 relative flex justify-center cursor-pointer transition duration-500 ease-in-out transform hover:scale-120">
+    <div className="w-72 h-96 relative flex justify-center cursor-pointer">
       <div className="w-72 absolute h-72 top-0 rounded-md">
         {/* TODO: Adjust img with different sizes */}
         <Image
@@ -43,7 +43,12 @@ function ActivityItem(props: ActivityProps) {
         />
       </div>
       <div className="w-64 h-10 absolute top-3 flex justify-between">
-        <img src={logo} alt="" className="h-10" />
+        <div className="group flex gap-x-2">
+          <img src={logo} alt="" className="h-10" />
+          <div className="w-44 h-14 p-3 bg-gray bg-opacity-50 rounded-r-2xl rounded-b-2xl invisible group-hover:visible">
+            <p className="text-white font-bold text-xs">Tên câu lạc bộ</p>
+          </div>
+        </div>
         {joined ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +66,7 @@ function ActivityItem(props: ActivityProps) {
           <></>
         )}
       </div>
-      <div className="w-60 absolute flex flex-col items-center justify-evenly p-4 bottom-0 bg-white rounded-xl shadow-md text-xs">
+      <div className="w-60 absolute flex flex-col items-center justify-evenly p-4 bottom-0 bg-white rounded-xl shadow-md text-xs transition transform hover:-translate-y-4">
         <div className="w-full flex justify-center">
           <div className="w-full flex justify-between">
             <div className="flex items-center text-cyan-dark">
