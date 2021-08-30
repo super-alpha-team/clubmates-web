@@ -27,6 +27,7 @@ module.exports = {
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/prop-types": [2, { ignore: ["children"] }],
+    "@next/next/no-img-element": "off",
     // allow jsx syntax in js files (for next.js project)
     "react/jsx-filename-extension": [
       1,

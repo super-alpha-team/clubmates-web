@@ -7,6 +7,7 @@ function Login() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const status = useAppSelector(selectStatus);
+
   function loginGGClick() {
     const baseURL =
       process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:5000";
@@ -29,8 +30,9 @@ function Login() {
       });
     }
   }
+
   useEffect(() => {
-    if (status === "logined") router.push("/");
+    if (status === "loggedIn") router.push("/");
     return;
   }, []);
   const loginWithAccount = false;

@@ -6,7 +6,7 @@ import userApi from "api/userApi";
 export interface UserState {
   user: any;
   token: string;
-  status: "logined" | "nologin" | "loading";
+  status: "loggedIn" | "nologin" | "loading";
 }
 
 const initialState: UserState = {
@@ -62,7 +62,7 @@ export const userSlice = createSlice({
         state.status = "loading";
       })
       .addCase(getInfoAsync.fulfilled, (state, action) => {
-        state.status = "logined";
+        state.status = "loggedIn";
         state.user = action.payload.user;
         state.token = action.payload.token;
       })
