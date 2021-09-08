@@ -1,8 +1,9 @@
+import React, { FC, useRef } from "react";
+import Image from "next/image";
 import Footer from "components/footer/Footer";
 import Header from "components/header/Header";
-import React, { FC } from "react";
-import Image from "next/image";
-import hompageImage from "../public/assets/homepage.svg";
+import Banner from "components/kit/Banner";
+
 import section11 from "../public/assets/section1-1.svg";
 import section12 from "../public/assets/section1-2.svg";
 import section13 from "../public/assets/section1-3.svg";
@@ -11,32 +12,97 @@ import section5 from "../public/assets/section5.svg";
 import star from "../public/icons/star.svg";
 import starOutline from "../public/icons/star-outline.svg";
 
-import { selectUser, selectStatus } from "redux/userSlice";
-import { useAppSelector } from "redux/hooks";
+// import { selectUser, selectStatus } from "redux/userSlice";
+// import { useAppSelector } from "redux/hooks";
+
+// import useIntersectionObserver from "./useIntersectionObserver";
+// import { useIntersection } from "react-use";
+import gsap from "gsap";
 
 const HomePage: FC = () => {
-  const user = useAppSelector(selectUser);
-  const status = useAppSelector(selectStatus);
-  console.log("user", user);
-  console.log("status", status);
+  // const user = useAppSelector(selectUser);
+  // const status = useAppSelector(selectStatus);
+
+  const sectionRef = useRef(null);
+  // const section2Ref = useRef(null);
+  // const intersection = useIntersectionObserver({
+  //   refs: [sectionRef, section2Ref],
+  //   options: {
+  //     root: null,
+  //     rootMargin: "0px",
+  //     threshold: 0.6,
+  //   },
+  // });
+
+  if (typeof document !== "undefined") {
+    const fadeIn = (element) => {
+      gsap.to(element, 1, {
+        opacity: 1,
+        y: 0,
+        ease: "power4.out",
+        stagger: {
+          amount: 0,
+        },
+      });
+    };
+
+    const fadeOut = (element) => {
+      gsap.to(element, 1, {
+        opacity: 0,
+        y: -50,
+        ease: "power4.out",
+      });
+    };
+
+    // if (intersection && intersection.intersectionRatio < 0.6) {
+    //   fadeOut(".fadeIn");
+    //   console.log("out", intersection);
+    // } else {
+    //   console.log("in", intersection);
+    //   fadeIn(".fadeIn");
+    // }
+  }
+
+  // if (typeof document !== "undefined") {
+  //   const clubmates = document.querySelector(".clubmates");
+  //   //console.log("clubmates", clubmates);
+  //   clubmates.classList.remove("-translate-y-0", "opacity-1");
+
+  //   const observer = new IntersectionObserver((entries) => {
+  //     // console.log("entries", entries);
+  //     entries.forEach((entry) => {
+  //       if (entry.intersectionRatio > 0) {
+  //         //console.log("entry", entry);
+  //         clubmates.classList.remove("-translate-y-16", "opacity-0");
+  //         clubmates.classList.add("-translate-y-0", "opacity-1");
+  //       } else {
+  //         clubmates.classList.remove("-translate-y-0", "opacity-1");
+  //         clubmates.classList.add("-translate-y-16", "opacity-0");
+  //       }
+  //     });
+  //   });
+
+  //   observer.observe(clubmates);
+  //   // clubmates.forEach((clubmate) => {
+  //   //   observer.observe(clubmate);
+  //   // });
+  // }
 
   return (
     <div className="">
       <Header />
-      <div className="lg:pr-24 lg:pl-24 pr-8 pl-8">
-        <Image
-          src={hompageImage}
-          alt="image"
-          //layout="fill"
-          //width="1000"
-          height="491"
-        />
-        <section className="pb-20 pt-12 lg:pt-20">
-          <h1 className="text-center text-4xl font-bold mb-12 text-cyan-dark">
+      <Banner />
+      <div id="section1" className="lg:pr-24 lg:pl-24 pr-8 pl-8">
+        <section ref={sectionRef} className="pb-20 pt-12 lg:pt-20">
+          <h1
+            id="clubmates"
+            className="clubmates text-center text-4xl font-bold mb-12 text-cyan-dark"
+            // className="clubmates text-center text-4xl font-bold mb-12 text-cyan-dark transition duration-700 ease opacity-0 -translate-y-16 delay-200"
+          >
             Nền tảng Clubmates
           </h1>
           <div className="flex flex-col md:flex-row justify-around">
-            <div className="flex flex-col items-center">
+            <div className="fadeIn flex flex-col items-center ">
               <Image
                 src={section11}
                 alt="image"
@@ -47,7 +113,7 @@ const HomePage: FC = () => {
                 Tối ưu và đồng bộ
               </p>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="fadeIn flex flex-col items-center">
               <Image
                 src={section12}
                 alt="image"
@@ -58,7 +124,7 @@ const HomePage: FC = () => {
                 Dễ dàng thao tác và làm việc nhóm
               </p>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="fadeIn flex flex-col items-center">
               <Image
                 src={section13}
                 alt="image"
@@ -76,7 +142,10 @@ const HomePage: FC = () => {
         <section className="pb-20 pt-8">
           <div className="flex flex-col items-center mb-16">
             <div className="w-24 border-4 border-cyan-light rounded-full mb-6"></div>
-            <h1 className="text-3xl font-bold text-cyan-dark mb-6">
+            <h1
+              id="activityH1"
+              className="clubmates text-3xl font-bold text-cyan-dark mb-6 "
+            >
               Hoạt động nổi bật
             </h1>
             <p>
@@ -91,7 +160,7 @@ const HomePage: FC = () => {
         <section className="pb-20 pt-12">
           <div className="flex flex-col items-center mb-16">
             <div className="w-24 border-4 border-cyan-light rounded-full mb-6"></div>
-            <h1 className="text-3xl font-bold text-cyan-dark mb-6">
+            <h1 className="clubmates text-3xl font-bold text-cyan-dark mb-6">
               Câu lạc bộ nổi bật
             </h1>
             <p>
@@ -114,7 +183,7 @@ const HomePage: FC = () => {
             </p>
             <p>the 1500s, when an unknown printer took a galley of type.</p>
           </div>
-          <div className="flex lg:flex-row flex-col justify-around">
+          <div className="fadeIn flex lg:flex-row flex-col justify-around">
             <div className="lg:w-1/2 w-full mb-12 lg:mb-0 pl-4 md:pl-0 pr-4 md:pr-0 flex justify-center">
               <div className="sm:w-5/6 flex flex-col items-center pt-8 pb-12 bg-bgc shadow-card rounded-xl">
                 <Image
@@ -202,7 +271,7 @@ const HomePage: FC = () => {
 
         {/* số liệu nổi bật */}
         <section className="pb-20 pt-12 flex lg:flex-row flex-col ">
-          <div className="flex-1 mb-12 lg:mb-0">
+          <div className="fadeIn flex-1 mb-12 lg:mb-0">
             <Image src={section5} alt="image 5" />
           </div>
           <div className="flex flex-col flex-1 ml-12 justify-center">

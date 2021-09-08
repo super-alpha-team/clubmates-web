@@ -165,7 +165,7 @@ function Header() {
               <Avatar />
             ) : (
               <button
-                className="text-lg pl-4 h-11 pr-4 pt-2 pb-2 rounded-full bg-orange text-white shadow-button hover:bg-orange-dark transition duration-200"
+                className="text-lg pl-4 h-11 pr-4 pt-2 pb-2 rounded-full bg-orange text-white shadow-md hover:bg-orange-dark transition duration-200"
                 onClick={() => router.push("/login")}
               >
                 Đăng nhập
