@@ -1,0 +1,12 @@
+.activity-section {
+    margin-right: 5rem;
+    margin-left: 5rem;
+}
+
+.activity-section .see-more div {
+    transform: translateX(-100%);
+}
+
+.activity-section:hover .see-more div{
+    transform: translateX(0%);
+}
