@@ -57,6 +57,7 @@ module.exports = {
         button:
           "0 4px 6px 0px rgba(0, 0, 0, 0.25), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
         card: "0px 3px 15px 4px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        template: "0px 0px 8px #FBB667",
       },
     },
   },
