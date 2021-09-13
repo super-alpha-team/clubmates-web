@@ -50,6 +50,8 @@ module.exports = {
         h3: "22px",
         h4: "20px",
         h5: "18px",
+        copyright: "12px",
+        paragraph: "16px",
       },
       boxShadow: {
         button:
