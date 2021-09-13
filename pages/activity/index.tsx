@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "components/header/Header";
 import Footer from "components/footer/Footer";
 import ActivitiesSection from "components/activity/ActivitiesSection";
+import ActivityBanner from "components/activity/ActivityBanner";
 
 function activitiesSectionAction(value) {
   console.log(value);
@@ -12,6 +13,7 @@ const Activities = function () {
   return (
     <div>
       <Header></Header>
+      <ActivityBanner></ActivityBanner>
       <ActivitiesSection
         title="HOẠT ĐỘNG TUẦN QUA"
         items={DATA_ROW}

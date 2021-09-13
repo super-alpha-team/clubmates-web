@@ -7,6 +7,7 @@ import ActivitySummary from "components/activity/ActivitySummary";
 import { ActivityDescription } from "components/activity/ActivityDescription";
 import ActivityPricingSection from "components/activity/ActivityPricing";
 import ActivityBlogSection from "components/activity/ActivityBlogSection";
+import ActivityBanner from "components/activity/ActivityBanner";
 
 type AppProps = {
   param: string;
@@ -15,6 +16,7 @@ type AppProps = {
 function Activity(props: AppProps) {
   return <div>
     <Header></Header>
+    <ActivityBanner></ActivityBanner>
     <ActivitySummary></ActivitySummary>
     <ActivityDescription></ActivityDescription>
     <ActivityPricingSection></ActivityPricingSection>

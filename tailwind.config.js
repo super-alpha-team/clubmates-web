@@ -61,7 +61,10 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
   future: {
     purgeLayersByDefault: true,
   },
