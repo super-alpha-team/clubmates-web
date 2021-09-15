@@ -31,6 +31,7 @@
         "@babel/core": "^7.15.0",
         "@next/bundle-analyzer": "^11.1.0",
         "@reduxjs/toolkit": "^1.6.1",
+        "@tailwindcss/aspect-ratio": "^0.2.1",
         "axios": "^0.21.1",
         "gsap": "^3.7.1",
         "next": "^11.1.0",

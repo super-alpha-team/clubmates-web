@@ -50,6 +50,8 @@ module.exports = {
         h3: "22px",
         h4: "20px",
         h5: "18px",
+        copyright: "12px",
+        paragraph: "16px",
       },
       boxShadow: {
         button:
@@ -60,7 +62,10 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
   future: {
     purgeLayersByDefault: true,
   },
