@@ -30,6 +30,8 @@ const CreateClub = () => {
   const [logoImg, setLogoImg] = useState(null);
   const [photoImg, setPhotoImg] = useState(null);
 
+  const [templateNum, setTemplateNum] = useState(0);
+
   const onNext = () => {
     setTabNumber(tabNumber + 1);
     setMaxTabNumber(tabNumber + 1);
@@ -132,16 +134,21 @@ const CreateClub = () => {
             setLogoImg={setLogoImg}
             photoImg={photoImg}
             setPhotoImg={setPhotoImg}
+            onNext={onNext}
           />
         ) : tabNumber === 2 ? (
           <OrganizeStructureTab
             clubGroupInfo={clubGroupInfo}
             setClubGroupInfo={setClubGroupInfo}
+            onNext={onNext}
+            templateNum={templateNum}
+            setTemplateNum={setTemplateNum}
           />
         ) : tabNumber === 3 ? (
           <ActivityTab
             activityInfo={activityInfo}
             setActivityInfo={setActivityInfo}
+            onNext={onNext}
           />
         ) : (
           <div className="flex items-center mt-6">
@@ -164,12 +171,7 @@ const CreateClub = () => {
               Tạo câu lạc bộ
             </button>
           ) : (
-            <button
-              className="text-lg pl-8 h-11 pr-8 pt-2 pb-2 rounded-full bg-orange text-white shadow-lg hover:bg-orange-dark transition duration-200"
-              onClick={onNext}
-            >
-              Tiếp tục
-            </button>
+            ""
           )}
         </div>
       </div>

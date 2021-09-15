@@ -5,6 +5,9 @@ type DropdownColorfulProps = {
   value: string;
   name: string;
   clubInfo: any;
+  errorType: string;
+  errors: any;
+  setError: (string) => void;
   action: (string) => void;
 };
 
@@ -27,6 +30,9 @@ const DropdownColorful = ({
   value,
   name,
   clubInfo,
+  errorType,
+  errors,
+  setError,
   action,
 }: DropdownColorfulProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -52,29 +58,65 @@ const DropdownColorful = ({
 
   function select(value) {
     action({ ...clubInfo, [name]: value });
+
+    switch (name) {
+      case "ClubColor":
+        errors[`${errorType}`] =
+          value.length == 0 ? "Không để trống màu chủ đạo!" : "";
+        break;
+      default:
+        break;
+    }
+    setError({ ...errors });
   }
 
   return (
     <>
       <div className="w-full h-16 relative pl-2" tabIndex={0}>
-        {/* <span>{title}</span> */}
-        <div
-          className={
-            !isExpanded
-              ? "z-10 px-2 py-2 border-[#F2F5FA] rounded-lg bg-[#F1F1F2] flex flex-row justify-between cursor-pointer"
-              : "border-orange border bg-white transition duration-50 z-10 px-2 py-2 rounded-lg flex flex-row justify-between cursor-pointer"
-          }
-          onClick={toggle}
-        >
-          <span className="w-full text-sm">
-            {clubInfo[`${name}`] == "" ? "Chọn màu" : `${clubInfo[`${name}`]}`}
-          </span>
-          <img
-            src="/icons/iconmonstr-paintbrush-7.svg"
-            alt="entypo_select-arrows"
-            className="w-4"
-          />
-        </div>
+        {errors[`${errorType}`] === "" ? (
+          <div
+            className={
+              !isExpanded
+                ? "z-10 px-2 py-2 border-[#F2F5FA] rounded-lg bg-[#F1F1F2] flex flex-row justify-between cursor-pointer"
+                : "border-orange border bg-white transition duration-50 z-10 px-2 py-2 rounded-lg flex flex-row justify-between cursor-pointer"
+            }
+            onClick={toggle}
+          >
+            <span className="w-full text-sm">
+              {clubInfo[`${name}`] == ""
+                ? "Chọn màu"
+                : `${clubInfo[`${name}`]}`}
+            </span>
+            <img
+              src="/icons/iconmonstr-paintbrush-7.svg"
+              alt="entypo_select-arrows"
+              className="w-4"
+            />
+          </div>
+        ) : (
+          <>
+            <div
+              className={
+                !isExpanded
+                  ? "z-10 px-2 py-2 border-red-600 border rounded-lg bg-white flex flex-row justify-between cursor-pointer"
+                  : "border-orange border bg-white transition duration-50 z-10 px-2 py-2 rounded-lg flex flex-row justify-between cursor-pointer"
+              }
+              onClick={toggle}
+            >
+              <span className="w-full text-sm">
+                {clubInfo[`${name}`] == ""
+                  ? "Chọn màu"
+                  : `${clubInfo[`${name}`]}`}
+              </span>
+              <img
+                src="/icons/iconmonstr-paintbrush-7.svg"
+                alt="entypo_select-arrows"
+                className="w-4"
+              />
+            </div>
+            <p className="text-xs p-1 text-red-600">{errors[`${errorType}`]}</p>
+          </>
+        )}
 
         {isExpanded && (
           <div ref={wrapperRef} className="absolute z-[9999]">
