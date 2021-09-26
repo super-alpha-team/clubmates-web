@@ -14,7 +14,7 @@ const advertiseData = [
   {
     title: "Bùng nổ hoạt động Câu lạc bộ với Clubmates",
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+      "Quản lý câu lạc bộ của bạn một cách chuyên nghiệp với Clubmates. Chúng tôi giúp lan tỏa những hoạt động bổ ích của các bạn đến với mọi người",
     date: "Aug 28th 2021",
     imgUrl: "https://svgshare.com/i/_vC.svg",
     color: "#F9A826",
@@ -22,7 +22,7 @@ const advertiseData = [
   {
     title: "Bùng nổ hoạt động Câu lạc bộ với Clubmates",
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.",
+      "Quản lý câu lạc bộ của bạn một cách chuyên nghiệp với Clubmates. Chúng tôi giúp lan tỏa những hoạt động bổ ích của các bạn đến với mọi người",
     date: "Aug 28th 2021",
     imgUrl: "https://svgshare.com/i/_vC.svg",
     color: "#F9A826",

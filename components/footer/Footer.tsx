@@ -16,8 +16,8 @@ function Footer() {
             quality={100}
           />
           <p>
-            Lorem Ipsum has been the industry's standard dummy text ever since
-            the 1500.
+            Nền tảng quản lý câu lạc bộ và quản lý những hoạt động của câu lạc
+            bộ
           </p>
         </div>
 

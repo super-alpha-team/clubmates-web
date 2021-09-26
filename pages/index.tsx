@@ -18,6 +18,7 @@ import starOutline from "../public/icons/star-outline.svg";
 // import useIntersectionObserver from "./useIntersectionObserver";
 // import { useIntersection } from "react-use";
 import gsap from "gsap";
+import Highlights from "components/club/Highlights";
 
 const HomePage: FC = () => {
   // const user = useAppSelector(selectUser);
@@ -139,8 +140,8 @@ const HomePage: FC = () => {
         </section>
 
         {/* hoạt động nổi bật */}
-        <section className="pb-20 pt-8">
-          <div className="flex flex-col items-center mb-16">
+        <section className="pb-12 pt-8">
+          <div className="flex flex-col items-center mb-2">
             <div className="w-24 border-4 border-cyan-light rounded-full mb-6"></div>
             <h1
               id="activityH1"
@@ -149,26 +150,30 @@ const HomePage: FC = () => {
               Hoạt động nổi bật
             </h1>
             <p>
-              Lorem Ipsum has been the industry's standard dummy text ever since
+              Những hoạt động nổi bật gần đây được Clubmates cập nhật sớm nhất
             </p>
-            <p>the 1500s, when an unknown printer took a galley of type.</p>
+            <p>Hãy ghé qua nếu bạn có ấn tượng nhé!!!</p>
           </div>
-          <div className="text-center">components</div>
+          <div className="">
+            <Highlights />
+          </div>
         </section>
 
         {/* câu lạc bộ nổi bật */}
-        <section className="pb-20 pt-12">
-          <div className="flex flex-col items-center mb-16">
+        <section className="pb-12 pt-12">
+          <div className="flex flex-col items-center mb-2">
             <div className="w-24 border-4 border-cyan-light rounded-full mb-6"></div>
             <h1 className="clubmates text-3xl font-bold text-cyan-dark mb-6">
               Câu lạc bộ nổi bật
             </h1>
             <p>
-              Lorem Ipsum has been the industry's standard dummy text ever since
+              Những câu lạc bộ đang trên top trending của Clubmtes dạo gần đây
             </p>
-            <p>the 1500s, when an unknown printer took a galley of type.</p>
+            <p>Ấn vào xem nếu bạn muốn biết thêm về chúng mình nhé</p>
           </div>
-          <div className="text-center">components</div>
+          <div className="text-center">
+            <Highlights />
+          </div>
         </section>
 
         {/* section đánh giá nhận xét */}
@@ -179,9 +184,9 @@ const HomePage: FC = () => {
               Đánh giá nhận xét
             </h1>
             <p>
-              Lorem Ipsum has been the industry's standard dummy text ever since
+              Một vài nhận xét nổi bật mà đội ngũ Clubmates thu thập được từ
             </p>
-            <p>the 1500s, when an unknown printer took a galley of type.</p>
+            <p>một trong nhiều người dùng Clubmates thời gian qua</p>
           </div>
           <div className="fadeIn flex lg:flex-row flex-col justify-around">
             <div className="lg:w-1/2 w-full mb-12 lg:mb-0 pl-4 md:pl-0 pr-4 md:pr-0 flex justify-center">
@@ -193,8 +198,8 @@ const HomePage: FC = () => {
                   className="rounded-full"
                 />
                 <p className="sm:w-1/4 w-2/4 text-center mt-6">
-                  Rất xinh đẹp rất tuyệt vời, Rất xinh đẹp rất tuyệt vời, Rất
-                  xinh đẹp rất tuyệt vời
+                  Ứng dụng rất tuyệt vời và hữu ích, nó giúp tôi và những người
+                  bạn quản lý tốt câu lạc bộ của mình
                 </p>
                 <div className="flex mt-3 mb-3">
                   <div className="h-5 w-5">
@@ -235,8 +240,8 @@ const HomePage: FC = () => {
                   className="rounded-full"
                 />
                 <p className="sm:w-1/4 w-2/4 text-center mt-6">
-                  Rất xinh đẹp rất tuyệt vời, Rất xinh đẹp rất tuyệt vời, Rất
-                  xinh đẹp rất tuyệt vời
+                  Rất giúp ích trong việc giao tiếp và quản lý công việc hiệu
+                  quả cho các thành viên
                 </p>
                 <div className="flex mt-3 mb-3">
                   <div className="h-5 w-5">
@@ -280,9 +285,9 @@ const HomePage: FC = () => {
               Số liệu nổi bật
             </h1>
             <p>
-              Lorem Ipsum has been the industry's standard dummy text ever since
+              Số liệu người dùng và hoạt động của Clubmates được đội ngũ phát
             </p>
-            <p>the 1500s, when an unknown printer took a galley of type.</p>
+            <p>triển thu thập được thời gian qua</p>
             <div className="flex sm:flex-row flex-col gap-14 mt-6 mb-6">
               <p>
                 <span className="text-5xl font-bold text-orange">20</span>
